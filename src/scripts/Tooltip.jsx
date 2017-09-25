@@ -519,7 +519,7 @@ export default class JoyrideTooltip extends React.Component {
     if (showOverlay) {
       // Empty onClick handler is for iOS touch devices (https://github.com/gilbarbara/react-joyride/issues/204)
       output.hole = (
-        <div className={`joyride-hole ${browser}`} style={styles.hole} onClick={() => {}} />
+        <div className={`joyride-hole ${browser}`} style={styles.hole} />
       );
     }
 
