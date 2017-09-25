@@ -1,0 +1,202 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/ktabori/.nvm/versions/node/v7.6.0/bin/node',
+1 verbose cli   '/Users/ktabori/.nvm/versions/node/v7.6.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.6.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/ktabori/Documents/Repos/react-joyride',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/ktabori/.npm/react-joyride/1.10.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/ktabori/.npm correctMkdir not in flight; initializing
+10 warn prepublish-on-install As of npm@5, `prepublish` scripts will run only for `npm publish`.
+11 warn prepublish-on-install (In npm@4 and previous versions, it also runs for `npm install`.)
+12 warn prepublish-on-install See the deprecation note in `npm help scripts` for more information.
+13 info lifecycle react-joyride@1.10.1~prepublish: react-joyride@1.10.1
+14 verbose lifecycle react-joyride@1.10.1~prepublish: unsafe-perm in lifecycle true
+15 verbose lifecycle react-joyride@1.10.1~prepublish: PATH: /Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/ktabori/Documents/Repos/react-joyride/node_modules/.bin:/Users/ktabori/.nvm/versions/node/v7.6.0/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+16 verbose lifecycle react-joyride@1.10.1~prepublish: CWD: /Users/ktabori/Documents/Repos/react-joyride
+17 silly lifecycle react-joyride@1.10.1~prepublish: Args: [ '-c', 'npm run build' ]
+18 silly lifecycle react-joyride@1.10.1~prepublish: Returned: code: 0  signal: null
+19 info lifecycle react-joyride@1.10.1~prepare: react-joyride@1.10.1
+20 silly lifecycle react-joyride@1.10.1~prepare: no script for prepare, continuing
+21 verbose tar pack [ '/Users/ktabori/.npm/react-joyride/1.10.1/package.tgz',
+21 verbose tar pack   '/Users/ktabori/Documents/Repos/react-joyride' ]
+22 verbose tarball /Users/ktabori/.npm/react-joyride/1.10.1/package.tgz
+23 verbose folder /Users/ktabori/Documents/Repos/react-joyride
+24 verbose addLocalTarball adding from inside cache /Users/ktabori/.npm/react-joyride/1.10.1/package.tgz
+25 verbose correctMkdir /Users/ktabori/.npm correctMkdir not in flight; initializing
+26 silly cache afterAdd react-joyride@1.10.1
+27 verbose afterAdd /Users/ktabori/.npm/react-joyride/1.10.1/package/package.json not in flight; writing
+28 verbose correctMkdir /Users/ktabori/.npm correctMkdir not in flight; initializing
+29 verbose afterAdd /Users/ktabori/.npm/react-joyride/1.10.1/package/package.json written
+30 silly publish { name: 'react-joyride',
+30 silly publish   version: '1.10.1',
+30 silly publish   description: 'Create walkthroughs and guided tours for your apps',
+30 silly publish   author: { name: 'Gil Barbara', email: 'gilbarbara@gmail.com' },
+30 silly publish   repository:
+30 silly publish    { type: 'git',
+30 silly publish      url: 'git+https://github.com/gilbarbara/react-joyride.git' },
+30 silly publish   bugs: { url: 'https://github.com/gilbarbara/react-joyride/issues' },
+30 silly publish   homepage: 'https://gilbarbara.github.com/react-joyride/',
+30 silly publish   main: 'lib/index.js',
+30 silly publish   keywords:
+30 silly publish    [ 'react',
+30 silly publish      'react-component',
+30 silly publish      'tooltips',
+30 silly publish      'joyride',
+30 silly publish      'walkthroughs',
+30 silly publish      'tour' ],
+30 silly publish   license: 'MIT',
+30 silly publish   dependencies:
+30 silly publish    { 'nested-property': '^0.0.7',
+30 silly publish      'react-autobind': '^1.0',
+30 silly publish      scroll: '^2.0' },
+30 silly publish   peerDependencies:
+30 silly publish    { react: '^0.14.0 || ^15.0.0',
+30 silly publish      'react-dom': '^0.14.0 || ^15.0.0',
+30 silly publish      'prop-types': '^15.5.10' },
+30 silly publish   devDependencies:
+30 silly publish    { autoprefixer: '^6.7',
+30 silly publish      'babel-core': '^6.23',
+30 silly publish      'babel-eslint': '^7.1',
+30 silly publish      'babel-jest': '^19.0',
+30 silly publish      'babel-loader': '^6.3',
+30 silly publish      'babel-plugin-istanbul': '^4.0',
+30 silly publish      'babel-plugin-transform-flow-strip-types': '^6.22',
+30 silly publish      'babel-plugin-transform-react-remove-prop-types': '^0.3.2',
+30 silly publish      'babel-plugin-transform-runtime': '^6.23',
+30 silly publish      'babel-preset-latest': '^6.22',
+30 silly publish      'babel-preset-react': '^6.23',
+30 silly publish      'babel-preset-stage-1': '^6.22',
+30 silly publish      bootstrap: '^4.0.0-alpha',
+30 silly publish      'browser-sync': '^2.18',
+30 silly publish      'browser-sync-webpack-plugin': '^1.1',
+30 silly publish      chalk: '^1.1.3',
+30 silly publish      'clean-webpack-plugin': '^0.1',
+30 silly publish      'copy-webpack-plugin': '^4.0',
+30 silly publish      'css-loader': '^0.26',
+30 silly publish      'date-fns': '^1.27',
+30 silly publish      enzyme: '^2.7',
+30 silly publish      eslint: '^3.16',
+30 silly publish      'eslint-config-airbnb': '^14.1',
+30 silly publish      'eslint-import-resolver-webpack': '^0.8',
+30 silly publish      'eslint-loader': '^1.6',
+30 silly publish      'eslint-plugin-babel': '^4.0',
+30 silly publish      'eslint-plugin-flowtype': '^2.30',
+30 silly publish      'eslint-plugin-import': '^2.2',
+30 silly publish      'eslint-plugin-jsx-a11y': '^4.0',
+30 silly publish      'eslint-plugin-react': '^6.10',
+30 silly publish      'extract-text-webpack-plugin': '^2.0.0-beta',
+30 silly publish      'flow-bin': '^0.40',
+30 silly publish      'html-webpack-plugin': '^2.28',
+30 silly publish      husky: '^0.13',
+30 silly publish      'image-webpack-loader': '^3.2',
+30 silly publish      'jest-cli': '^19.0',
+30 silly publish      jsdom: '^9.11',
+30 silly publish      nightwatch: '^0.9',
+30 silly publish      'node-sass': '^4.5',
+30 silly publish      'postcss-loader': '^1.3',
+30 silly publish      'prop-types': '^15.5.10',
+30 silly publish      react: '^15.4',
+30 silly publish      'react-addons-test-utils': '^15.4',
+30 silly publish      'react-dom': '^15.4',
+30 silly publish      'react-hot-loader': '^3.0.0-beta',
+30 silly publish      'sass-loader': '^6.0',
+30 silly publish      'source-map-support': '^0.4',
+30 silly publish      'style-loader': '^0.13',
+30 silly publish      stylelint: '^7.9',
+30 silly publish      'stylelint-config-standard': '^16.0',
+30 silly publish      'stylelint-declaration-strict-value': '^1.0',
+30 silly publish      'stylelint-order': '^0.3',
+30 silly publish      'stylelint-scss': '^1.4',
+30 silly publish      webpack: '^2.2.1',
+30 silly publish      'webpack-dev-server': '^2.4.1',
+30 silly publish      'webpack-merge': '^3.0' },
+30 silly publish   scripts:
+30 silly publish    { watch: 'webpack --config config/webpack.config.js',
+30 silly publish      build: 'NODE_ENV=production webpack --config config/webpack.prod.js',
+30 silly publish      start: 'node demo/config/webpack.server.js',
+30 silly publish      'build:demo': 'NODE_ENV=production webpack --config demo/config/webpack.build.js',
+30 silly publish      lint: 'eslint --ext .js --ext .jsx src test demo',
+30 silly publish      'lint:styles': 'stylelint \'src/**/*.scss\' \'demo/src/**/*.scss\'',
+30 silly publish      test: 'jest --config .jestrc --coverage',
+30 silly publish      'test:watch': 'jest --config .jestrc --watch',
+30 silly publish      'test:ui': 'npm start -- test:ui',
+30 silly publish      prepublish: 'npm run build',
+30 silly publish      postmerge: 'node config/tools update && npm update' },
+30 silly publish   readme: 'React Joyride\n===\n\n[![NPM version](https://badge.fury.io/js/react-joyride.svg)](https://badge.fury.io/js/react-joyride.svg)\n[![build status](https://travis-ci.org/gilbarbara/react-joyride.svg)](https://travis-ci.org/gilbarbara/react-joyride)\n[![Code Climate status](https://codeclimate.com/github/gilbarbara/react-joyride/badges/gpa.svg)](https://codeclimate.com/github/gilbarbara/react-joyride)\n[![Join the chat at https://gitter.im/gilbarbara/react-joyride](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gilbarbara/react-joyride?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n[![Joyride example image](http://gilbarbara.github.io/react-joyride/media/example.png)](http://gilbarbara.github.io/react-joyride/)\n\nView the demo [here](http://gilbarbara.github.io/react-joyride/) [[source](https://github.com/gilbarbara/react-joyride/tree/demo)]\n\n[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/React-Joyride/)\n\n## Setup\n\n```javascript\nnpm install --save react-joyride\n```\n\n### Styles\n\nIf you are using **SCSS**:\n\n```scss\n@import \'~react-joyride/lib/react-joyride\'\n\n```\n\nOr include this directly in your html:\n\n```html\n<link rel="stylesheet" href="/path/to/react-joyride/lib/react-joyride-compiled.css" type="text/css">\n```\n\n\n## Getting Started\n\nInclude `Joyride` in the parent component.\n\n\n```javascript\nimport Joyride from \'react-joyride\';\n\nexport class App extends React.Component {\n  render: function () {\n    return (\n      <div className="app">\n      <Joyride\n        ref="joyride"\n        steps={[arrayOfSteps]}\n        run={true} // or some other boolean for when you want to start it\n        debug={true}\n        callback={this.callback}\n        ...\n        />\n        <YourComponents .../>\n      </div>\n    );\n  }\n}\n```\nDon\'t forget to pass a `ref` to the component.\n\n\n**Please refer to the source code of the demo if you need a practical [example](https://github.com/gilbarbara/react-joyride/blob/demo/app/scripts/containers/App.jsx).**\n\n## Props\n\nYou can change the initial options passing props to the component.\n\n**steps** {array}: The tour\'s steps. Defaults to `[]`\n\n**stepIndex** {number}: The initial step index. Defaults to `0`\n\n**run** {bool}: Run/stop the tour. Defaults to `false`\n\n**autoStart** {bool}: Open the tooltip automatically for the first step, without showing a beacon. Defaults to `false`\n\n**keyboardNavigation** {bool}: Toggle keyboard navigation (esc, space bar, return). Defaults to `true`\n\n**locale** {object}: The strings used in the tooltip. Defaults to `{ back: \'Back\', close: \'Close\', last: \'Last\', next: \'Next\', skip: \'Skip\' }`\n\n**resizeDebounce** {bool}: Delay the reposition of the current step while the window is being resized. Defaults to `false`\n\n**resizeDebounceDelay** {number}: The amount of delay for the `resizeDebounce` callback. Defaults to `200`\n\n**holePadding** {number}: The gap around the target inside the hole. Defaults to `5`\n\n**scrollOffset** {number}: The scrollTop offset used in `scrollToSteps`. Defaults to `20`\n\n**scrollToSteps** {bool}: Scroll the page to the next step if needed. Defaults to `true`\n\n**scrollToFirstStep** {bool}: Scroll the page for the first step. Defaults to `false`\n\n**showBackButton** {bool}: Display a back button. Defaults to `true`\n\n**showOverlay** {bool}: Display an overlay with holes above your steps (for tours only). Defaults to `true`\n\n**allowClicksThruHole** {bool}: Allow mouse and touch events within overlay hole, and prevent `hole:click` callback from being sent.  Defaults to `false`\n\n**showSkipButton** {bool}: Display a link to skip the tour. Defaults to `false`\n\n**showStepsProgress** {bool}: Display the tour progress in the next button *e.g. 2/5* in `continuous` tours. Defaults to `false`\n\n**tooltipOffset** {number}: The tooltip offset from the target. Defaults to `30`\n\n**type** {string}: The type of your presentation. It can be `continuous` (played sequentially with the Next button) or `single`. Defaults to `single`\n\n**disableOverlay** {bool}: Don\'t close the tooltip on clicking the overlay. Defaults to `false`\n\n**debug** {bool}: Console.log Joyride\'s inner actions. Defaults to `false`\n\n**callback** {function}: It will be called when the tour\'s state changes and returns a single parameter:\n\n* entering a step `{ type: \'step:before\', index: 0, step: {...} }`\n* rendering the beacon `{ type: \'beacon:before\', step: {...} }`\n* triggering the beacon `{ type: \'beacon:trigger\', step: {...} }`\n* rendering the tooltip `{ type: \'tooltip:before\', step: {...} }`\n* closing a step `{ type: \'step:after\', step: {...} }`\n* clicking on the overlay (if not disabled) `{ type: \'overlay:click\', step: {...} }`\n* clicking on the hole `{ type: \'hole:click\', step: {...} }`\n* the target could not be found `{ type: \'error:target_not_found\', step: {...} }`\n* the tour ends. `{ type: \'finished\', steps: [{...}], isTourSkipped: boolean }`\n\nThe callback object also receives an `action` string (\'start\'|\'next\'|\'back\') and the step `index`.\n\nDefaults to `undefined`\n\n## API\n\n### this.joyride.reset(restart)\n\nCall this method to reset the tour iteration back to 0\n\n- `restart` {boolean} - Starts the tour again\n\n### this.joyride.next()\n\nCall this method to programmatically advance to the next step.\n\n### this.joyride.back()\n\nCall this method to programmatically return to the previous step.\n\n### this.joyride.addTooltip(data)\n\nAdd tooltips in your elements.\n\n- `data` {object} - A step object (check the syntax below)\n\n### this.joyride.getProgress()\nRetrieve the current progress of your tour. The object returned looks like this:\n\n```javascript\n{\n  index: 2,\n  percentageComplete: 50,\n  step: {\n    title: "...",\n    text: "...",\n    selector: "...",\n    position: "...",\n    ...\n  }\n}}\n```\n\n### Please don\'t use the `start` and `stop` methods anymore. Instead use a combination of the props `run` and `autoStart`.\n\n## Step Syntax\nThere are some usable options but you can pass custom parameters.\n\n- `title`: The tooltip\'s title.\n- `text`: The tooltip\'s content. It can be plain text, html or a React component.\n- `selector`: The target DOM selector of your feature **(required)**\n- `position`: Relative position of you beacon and tooltip. It can be one of these:`top`, `top-left`, `top-right`, `bottom`, `bottom-left`, `bottom-right`, `right` and `left`. This defaults to `top`.\n- `type`: The event type that trigger the tooltip: `click` or `hover`. Defaults to `click`\n- `isFixed`: If `true`, the tooltip will remain in a fixed position within the viewport. Defaults to `false`.\n- `allowClicksThruHole`: Set to `true` to allow pointer-events (hover, clicks, etc) or touch events within overlay hole. If `true`, the `hole:click` callback will not be sent. Defaults to `false`. Takes precedence over a `allowClicksThruHole` prop provided to `<Joyride />`\n- `style`: An object with stylesheet options.\n\n\n**Extra option for standalone tooltips**\n\n- `trigger`: The DOM element that will trigger the tooltip\n\nYou can style the tooltip UI for each step with these options: `backgroundColor`, `borderRadius`, `color`, `mainColor`, `textAlign` and `width`. \n\nYou can also style `header`, `main`, `footer`, `button`, `skip`, `back`, `close` and `hole` independently using standard style options. Plus `beacon` offset, inner and outer colors and `arrow` visibility.\n\n\nExample:\n\n```javascript\n{\n  title: \'First Step\',\n  text: \'Start using the <strong>joyride</strong>\',\n  selector: \'.first-step\',\n  position: \'bottom-left\',\n  type: \'hover\',\n  isFixed: true,\n  // optional styling\n  style: {\n    backgroundColor: \'rgba(0, 0, 0, 0.8)\',\n    borderRadius: \'0\',\n    color: \'#fff\',\n    mainColor: \'#ff4456\',\n    textAlign: \'center\',\n    width: \'29rem\',\n    arrow: {\n      display: \'none\'\n    },\n    beacon: {\n      offsetX: 10,\n      offsetY: 10,\n      inner: \'#000\',\n      outer: \'#000\'\n    },\n    header: {\n      textAlign: \'right\'\n      // or any style attribute\n    },\n    main: {\n      padding: \'20px\'\n    },\n    footer: {\n      display: \'none\'\n    },\n    skip: {\n      color: \'#f04\'\n    },\n    hole: {\n      backgroundColor: \'rgba(201, 23, 33, 0.2)\',\n    }\n    ...\n  },\n  // custom params...\n  name: \'my-first-step\',\n  parent: \'MyComponentName\'\n}\n```\n\n## SCSS Options\n\n#### Basic\n\n- `$joyride-color`: The base color. Defaults to `#f04`\n- `$joyride-zindex`: Defaults to `1500`\n- `$joyride-overlay-color`: Defaults to `rgba(#000, 0.5)`\n- `$joyride-beacon-color`: Defaults to `$joyride-color`\n- `$joyride-beacon-size`: Defaults to `36px`\n- `$joyride-hole-border-radius`: Defaults to `4px`\n- `$joyride-hole-shadow`: Defaults to `0 0 15px rgba(#000, 0.5)`\n\n#### Tooltip\n\n- `$joyride-tooltip-arrow-size`: You must use even numbers to avoid half-pixel inconsistencies. Defaults to `28px`\n- `$joyride-tooltip-bg-color`: Defaults to `#fff`\n- `$joyride-tooltip-border-radius`: Defaults to `4px`\n- `$joyride-tooltip-color`: The header and text color. Defaults to `#555`\n- `$joyride-tooltip-font-size`: Defaults to `16px`\n- `$joyride-tooltip-padding`: Defaults to `20px`\n- `$joyride-tooltip-shadow`: Sass list for drop-shadow. Defaults to `(x: 1px, y: 2px, blur: 3px, color: rgba(#000, 0.3))`\n- `$joyride-tooltip-width`: Sass list of Mobile / Tablet / Desktop sizes. Defaults to `(290px, 360px, 450px)`\n- `$joyride-header-color`: Defaults to `$joyride-tooltip-header-color`\n- `$joyride-header-font-size`: Defaults to `20px`\n- `$joyride-header-border-color`: Defaults to `$joyride-color`\n- `$joyride-header-border-width`: Defaults to `1px`\n- `$joyride-button-bg-color`: Defaults to `$joyride-color`\n- `$joyride-button-color`: Defaults to `#fff`\n- `$joyride-button-border-radius`: Defaults to `4px`\n- `$joyride-back-button-color`: Defaults to `$joyride-color`\n- `$joyride-skip-button-color`: Defaults to `#ccc`\n- `$joyride-close`: Sass list for the close button: Defaults to `(color: rgba($joyride-tooltip-color, 0.5), size: 12px, top: 10px, right: 10px)`\n- `$joyride-close-visible`: Default to `true`;\n\n\n---\n\nInspired by [react-tour-guide](https://github.com/jakemmarsh/react-tour-guide) and [jquery joyride tour](http://zurb.com/playground/jquery-joyride-feature-tour-plugin)\n',
+30 silly publish   readmeFilename: 'README.md',
+30 silly publish   gitHead: '6321a92a0895d555d920552797cea2c27c50d454',
+30 silly publish   _id: 'react-joyride@1.10.1',
+30 silly publish   _shasum: 'd297226a22202ea71a90686bfd3cedeff782f32c',
+30 silly publish   _from: '.' }
+31 info lifecycle react-joyride@1.10.1~prepublishOnly: react-joyride@1.10.1
+32 silly lifecycle react-joyride@1.10.1~prepublishOnly: no script for prepublishOnly, continuing
+33 verbose getPublishConfig undefined
+34 silly mapToRegistry name react-joyride
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry data Result {
+37 silly mapToRegistry   raw: 'react-joyride',
+37 silly mapToRegistry   scope: null,
+37 silly mapToRegistry   escapedName: 'react-joyride',
+37 silly mapToRegistry   name: 'react-joyride',
+37 silly mapToRegistry   rawSpec: '',
+37 silly mapToRegistry   spec: 'latest',
+37 silly mapToRegistry   type: 'tag' }
+38 silly mapToRegistry uri https://registry.npmjs.org/react-joyride
+39 verbose publish registryBase https://registry.npmjs.org/
+40 silly publish uploading /Users/ktabori/.npm/react-joyride/1.10.1/package.tgz
+41 verbose request uri https://registry.npmjs.org/react-joyride
+42 verbose request sending authorization for write operation
+43 info attempt registry request try #1 at 2:49:41 PM
+44 verbose request using bearer token for auth
+45 verbose request id 1c4189cb4fd99d40
+46 http request PUT https://registry.npmjs.org/react-joyride
+47 http 403 https://registry.npmjs.org/react-joyride
+48 verbose headers { 'content-type': 'application/json',
+48 verbose headers   'cache-control': 'max-age=300',
+48 verbose headers   'content-length': '107',
+48 verbose headers   'accept-ranges': 'bytes',
+48 verbose headers   date: 'Mon, 25 Sep 2017 12:49:42 GMT',
+48 verbose headers   via: '1.1 varnish',
+48 verbose headers   connection: 'keep-alive',
+48 verbose headers   'x-served-by': 'cache-ams4132-AMS',
+48 verbose headers   'x-cache': 'MISS',
+48 verbose headers   'x-cache-hits': '0',
+48 verbose headers   'x-timer': 'S1506343781.449393,VS0,VE1146',
+48 verbose headers   vary: 'Accept-Encoding, Accept' }
+49 verbose request invalidating /Users/ktabori/.npm/registry.npmjs.org/react-joyride on PUT
+50 error publish Failed PUT 403
+51 verbose stack Error: You do not have permission to publish "react-joyride". Are you logged in as the correct user? : react-joyride
+51 verbose stack     at makeError (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
+51 verbose stack     at CachingRegistryClient.<anonymous> (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
+51 verbose stack     at Request._callback (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
+51 verbose stack     at Request.self.callback (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/request/request.js:186:22)
+51 verbose stack     at emitTwo (events.js:106:13)
+51 verbose stack     at Request.emit (events.js:192:7)
+51 verbose stack     at Request.<anonymous> (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+51 verbose stack     at emitOne (events.js:96:13)
+51 verbose stack     at Request.emit (events.js:189:7)
+51 verbose stack     at IncomingMessage.<anonymous> (/Users/ktabori/.nvm/versions/node/v7.6.0/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+52 verbose statusCode 403
+53 verbose pkgid react-joyride
+54 verbose cwd /Users/ktabori/Documents/Repos/react-joyride
+55 error Darwin 17.0.0
+56 error argv "/Users/ktabori/.nvm/versions/node/v7.6.0/bin/node" "/Users/ktabori/.nvm/versions/node/v7.6.0/bin/npm" "publish"
+57 error node v7.6.0
+58 error npm  v4.1.2
+59 error code E403
+60 error You do not have permission to publish "react-joyride". Are you logged in as the correct user? : react-joyride
+61 error If you need help, you may report this error at:
+61 error     <https://github.com/npm/npm/issues>
+62 verbose exit [ 1, true ]
