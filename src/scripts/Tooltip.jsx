@@ -106,10 +106,7 @@ export default class JoyrideTooltip extends React.Component {
       const styles = this.setStyles(nextProps.step.style, opts, nextProps);
       this.setState({ styles, opts });
     }
-
-    document.addEventListener('mousemove', this.handleMouseMove, false);
     
-    /*
     // If showOverlay changed, we might need to allow clicks in the overlay hole
     if (nextShowOverlay !== showOverlay) {
       if (nextShowOverlay && nextAllowClicksThruHole) {
@@ -129,7 +126,6 @@ export default class JoyrideTooltip extends React.Component {
         document.removeEventListener('mousemove', this.handleMouseMove, false);
       }
     }
-    */
   }
 
   componentDidUpdate(prevProps) {
