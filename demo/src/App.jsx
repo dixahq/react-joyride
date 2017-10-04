@@ -1,28 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Joyride from 'scripts/Joyride';
 
 import './styles.scss';
 
 export default class Demo extends React.Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
-      autoStart: false,
+      autoStart: true,
       running: false,
       steps: [
         {
           title: 'Title only steps — As they say: Make the font bigger!',
           textAlign: 'center',
           selector: '.projects .list',
-          position: 'top'
+          position: 'top',
+          allowClicksThruHole: true,
+          clickTroughCallback: () => { document.querySelector('.projects .list #callback-real-button').click(); },
         },
         {
           title: 'Our Mission',
           text: 'Can be advanced by clicking an element through the overlay hole.',
           selector: '.mission button',
           position: 'bottom',
-          allowClicksThruHole: true,
           style: {
             beacon: {
               offsetY: 20
@@ -72,12 +75,8 @@ export default class Demo extends React.Component {
   }
 
   static propTypes = {
-    joyride: React.PropTypes.shape({
-      autoStart: React.PropTypes.bool,
-      callback: React.PropTypes.func,
-      run: React.PropTypes.bool,
-    }),
-  };
+    joyride: PropTypes.object.isRequired
+  }
 
   static defaultProps = {
     joyride: {
@@ -180,7 +179,7 @@ export default class Demo extends React.Component {
       <div className="demo">
         <Joyride
           {...joyrideProps}
-          ref={c => (this.joyride = c)} />
+          ref={(c) => { this.joyride = c; }} />
         <main>
           <div className="hero">
             <div className="container">
@@ -196,17 +195,19 @@ export default class Demo extends React.Component {
           <div className="demo__section projects">
             <div className="container">
               <h2><span>Projects</span></h2>
-              <div className="list">
-                <div>
-                  <img src="http://placehold.it/800x600/ff0044/ffffff?txtsize=50&text=ASBESTOS" alt="ASBESTOS" />
+                <div className="list">
+                  <div>
+                    <img src="http://placehold.it/800x600/ff0044/ffffff?txtsize=50&text=ASBESTOS" alt="ASBESTOS" />
+                  </div>
+                  <button id="callback-real-button" onClick={(e) => { console.warn(`REAL BUTTON CLICKED 5 ${e}`); }}>
+                    <div>
+                      <img src="http://placehold.it/800x600/00ff44/ffffff?txtsize=50&text=GROW" alt="GROW" />
+                    </div>
+                  </button>
+                  <div>
+                    <img src="http://placehold.it/800x600/333/ffffff?txtsize=50&text=∂Vo∑" alt="∂Vo∑" />
+                  </div>
                 </div>
-                <div>
-                  <img src="http://placehold.it/800x600/00ff44/ffffff?txtsize=50&text=GROW" alt="GROW" />
-                </div>
-                <div>
-                  <img src="http://placehold.it/800x600/333/ffffff?txtsize=50&text=∂Vo∑" alt="∂Vo∑" />
-                </div>
-              </div>
             </div>
           </div>
 

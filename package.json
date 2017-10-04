@@ -1,6 +1,6 @@
 {
-  "name": "react-joyride",
-  "version": "1.10.1",
+  "name": "@dixa/react-joyride",
+  "version": "1.10.1-beta3",
   "description": "Create walkthroughs and guided tours for your apps",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
   "repository": {
@@ -22,6 +22,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "file-loader": "^1.1.4",
     "nested-property": "^0.0.7",
     "react-autobind": "^1.0",
     "scroll": "^2.0"
@@ -66,7 +67,7 @@
     "flow-bin": "^0.40",
     "html-webpack-plugin": "^2.28",
     "husky": "^0.13",
-    "image-webpack-loader": "^3.2",
+    "image-webpack-loader": "3.2",
     "jest-cli": "^19.0",
     "jsdom": "^9.11",
     "nightwatch": "^0.9",
@@ -99,7 +100,7 @@
     "test": "jest --config .jestrc --coverage",
     "test:watch": "jest --config .jestrc --watch",
     "test:ui": "npm start -- test:ui",
-    "precommit": "node config/tools commits && npm run lint && npm run lint:styles && npm test",
+    "precommit": "node config/tools commits && npm run lint && npm run lint:styles",
     "prepublish": "npm run build",
     "postmerge": "node config/tools update && npm update"
   }

@@ -109,17 +109,7 @@ export default class JoyrideTooltip extends React.Component {
 
     // If showOverlay changed, we might need to allow clicks in the overlay hole
     if (nextShowOverlay !== showOverlay) {
-      if (nextShowOverlay && nextAllowClicksThruHole) {
-        document.addEventListener('mousemove', this.handleMouseMove, false);
-      }
-      else {
-        document.removeEventListener('mousemove', this.handleMouseMove, false);
-      }
-    }
-
-    // If allowClickInHole changed, we need to enable or disable clicking in the overlay hole
-    if (nextAllowClicksThruHole !== allowClicksThruHole) {
-      if (nextAllowClicksThruHole) {
+      if (nextShowOverlay) {
         document.addEventListener('mousemove', this.handleMouseMove, false);
       }
       else {
@@ -515,7 +505,7 @@ export default class JoyrideTooltip extends React.Component {
     if (showOverlay) {
       // Empty onClick handler is for iOS touch devices (https://github.com/gilbarbara/react-joyride/issues/204)
       output.hole = (
-        <div className={`joyride-hole ${browser}`} style={styles.hole} onClick={() => {}} />
+        <div className={`joyride-hole ${browser}`} style={styles.hole} onClick={(e) => { this.props.onClick(e); if (this.props.step.clickTroughCallback) { this.props.step.clickTroughCallback(e); } }} />
       );
     }
 
@@ -526,7 +516,7 @@ export default class JoyrideTooltip extends React.Component {
     const overlayStyles = {
       cursor: disableOverlay ? 'default' : 'pointer',
       height: document.body.clientHeight,
-      pointerEvents: this.state.mouseOverHole ? 'none' : 'auto',
+      pointerEvents: this.props.allowClicksThruHole ? 'autop' : 'auto',
     };
 
     return (

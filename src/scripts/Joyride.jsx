@@ -866,6 +866,7 @@ class Joyride extends React.Component {
    * @param {Event} e - Click event
    */
   onClickTooltip(e) {
+
     const { index, shouldRun } = this.state;
     const { steps, type } = this.props;
     const el = e.currentTarget.className.includes('joyride-') && [
@@ -876,6 +877,7 @@ class Joyride extends React.Component {
 
     /* istanbul ignore else */
     if (el.className.indexOf('joyride-') === 0) {
+
       e.preventDefault();
       e.stopPropagation();
       const tooltip = document.querySelector('.joyride-tooltip');
@@ -896,8 +898,7 @@ class Joyride extends React.Component {
           shouldRun: false,
           standaloneData: false
         });
-      }
-      else if (dataType) {
+      } else if (dataType) {
         const shouldDisplay = ['continuous', 'guided'].indexOf(type) > -1
           && ['close', 'skip'].indexOf(dataType) === -1
           && Boolean(steps[newIndex]);
@@ -914,6 +915,7 @@ class Joyride extends React.Component {
       }
 
       if (e.target.classList.contains('joyride-hole')) {
+
         this.triggerCallback({
           action: 'click',
           type: callbackTypes.HOLE,
