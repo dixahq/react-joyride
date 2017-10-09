@@ -921,7 +921,7 @@ class Joyride extends React.Component {
           type: callbackTypes.HOLE,
           step: steps[index]
         });
-        setTimeout(this.nextTooltip(index), 600);
+        setTimeout(this.next(), 600);
       }
 
       if (tooltip.classList.contains('joyride-tooltip--standalone')) {
