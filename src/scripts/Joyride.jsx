@@ -890,22 +890,6 @@ class Joyride extends React.Component {
         newIndex = steps.length + 1;
       }
 
-      /* istanbul ignore else */
-      if (tooltip.classList.contains('joyride-tooltip--standalone')) {
-        this.setState({
-          isRunning: shouldRun,
-          shouldRedraw: true,
-          shouldRun: false,
-          standaloneData: false
-        });
-      } else if (dataType) {
-        const shouldDisplay = ['continuous', 'guided'].indexOf(type) > -1
-          && ['close', 'skip'].indexOf(dataType) === -1
-          && Boolean(steps[newIndex]);
-
-        this.toggleTooltip({ show: shouldDisplay, index: newIndex, action: dataType });
-      }
-
       if (e.target.className === 'joyride-overlay') {
         this.triggerCallback({
           action: 'click',
@@ -915,13 +899,29 @@ class Joyride extends React.Component {
       }
 
       if (e.target.classList.contains('joyride-hole')) {
-
         this.triggerCallback({
           action: 'click',
           type: callbackTypes.HOLE,
           step: steps[index]
         });
       }
+
+      setTimeout(function() {
+        if (tooltip.classList.contains('joyride-tooltip--standalone')) {
+          this.setState({
+            isRunning: shouldRun,
+            shouldRedraw: true,
+            shouldRun: false,
+            standaloneData: false
+          });
+        } else if (dataType) {
+          const shouldDisplay = ['continuous', 'guided'].indexOf(type) > -1
+            && ['close', 'skip'].indexOf(dataType) === -1
+            && Boolean(steps[newIndex]);
+
+          this.toggleTooltip({ show: shouldDisplay, index: newIndex, action: dataType });
+        }
+      }, 1000);
     }
   }
 
