@@ -863,7 +863,7 @@ class Joyride extends React.Component {
   }
 
   nextTooltip(index) {
-    this.toggleTooltip({ index: index + 1, action: 'next' });
+    this.toggleTooltip({ show: true, index: index + 1, action: 'next' });
   }
 
   /**
