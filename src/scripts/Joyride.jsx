@@ -311,45 +311,50 @@ class Joyride extends React.Component {
     // Joyride was running (it might still be), and the index has been changed
     if (isRunning && nextState.index !== index) {
       const that = this;
+      let runned = 0;
       const checkExist = setInterval(() => {
-        const foundRenderedTarget =  Boolean(that.getStepTargetElement(nextStep));
-        console.log('elem:', nextStep.selector, 'foundTarget:', foundRenderedTarget, 'targetHTML:', document.querySelector(nextStep.selector));
-        if (document.querySelector(nextStep.selector) && foundRenderedTarget) {
+        if (runned === 10) {
           clearInterval(checkExist);
+
+          console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
 
           that.triggerCallback({
             action: nextState.action,
-            index,
-            type: callbackTypes.STEP_AFTER,
-            step
+            index: nextState.index,
+            type: callbackTypes.TARGET_NOT_FOUND,
+            step: nextStep,
           });
-
-          // Attempted to advance to a step with a target that cannot be found
-          /* istanbul ignore else */
-          if (nextStep && !foundRenderedTarget) {
-            console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
-            that.triggerCallback({
-              action: nextState.action,
-              index: nextState.index,
-              type: callbackTypes.TARGET_NOT_FOUND,
-              step: nextStep,
-            });
-          }
-
-          // There's a next step and the index is > 0
-          // (which means STEP_BEFORE wasn't sent as part of the start handler above)
-          else if (nextStep && nextState.index) {
-            that.triggerCallback({
-              action: nextState.action,
-              index: nextState.index,
-              type: callbackTypes.STEP_BEFORE,
-              step: nextStep
-            });
-          }
-
         } else {
-          console.warn('Attempted to advance to a step with a target that cannot be found... Retry...');
+          const foundRenderedTarget =  Boolean(that.getStepTargetElement(nextStep));
+
+          console.log('elem:', nextStep.selector, 'foundTarget:', foundRenderedTarget, 'targetHTML:', document.querySelector(nextStep.selector));
+
+          if (document.querySelector(nextStep.selector) && foundRenderedTarget) {
+            clearInterval(checkExist);
+
+            that.triggerCallback({
+              action: nextState.action,
+              index,
+              type: callbackTypes.STEP_AFTER,
+              step
+            });
+
+            // There's a next step and the index is > 0
+            // (which means STEP_BEFORE wasn't sent as part of the start handler above)
+            if (nextStep && nextState.index) {
+              that.triggerCallback({
+                action: nextState.action,
+                index: nextState.index,
+                type: callbackTypes.STEP_BEFORE,
+                step: nextStep
+              });
+            }
+          } else {
+            console.warn('Attempted to advance to a step with a target that cannot be found... Retry...');
+          }
         }
+
+        runned++;
       }, 500);
     }
 
@@ -493,6 +498,7 @@ class Joyride extends React.Component {
       msg: ['new index:', nextIndex],
       debug: this.props.debug,
     });
+
     this.toggleTooltip({ show: shouldDisplay, index: nextIndex, action: 'next' });
   }
 
@@ -921,7 +927,8 @@ class Joyride extends React.Component {
           type: callbackTypes.HOLE,
           step: steps[index]
         });
-        setTimeout(this.next(), 600);
+        const that = this;
+        setTimeout(() => that.next(), 1000);
       }
 
       if (tooltip.classList.contains('joyride-tooltip--standalone')) {
