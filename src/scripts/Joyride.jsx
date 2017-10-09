@@ -311,10 +311,10 @@ class Joyride extends React.Component {
     // Joyride was running (it might still be), and the index has been changed
     if (isRunning && nextState.index !== index) {
       const that = this;
-      let checkExist = setInterval(() => {
-        console.log(nextStep.selector, document.querySelector(nextStep.selector));
-
-        if (document.querySelector(nextStep.selector) && hasRenderedTarget) {
+      const checkExist = setInterval(() => {
+        const foundRenderedTarget =  Boolean(that.getStepTargetElement(nextStep));
+        console.log('elem:', nextStep.selector, 'foundTarget:', foundRenderedTarget, 'targetHTML:', document.querySelector(nextStep.selector));
+        if (document.querySelector(nextStep.selector) && foundRenderedTarget) {
           clearInterval(checkExist);
 
           that.triggerCallback({
@@ -326,7 +326,7 @@ class Joyride extends React.Component {
 
           // Attempted to advance to a step with a target that cannot be found
           /* istanbul ignore else */
-          if (nextStep && !hasRenderedTarget) {
+          if (nextStep && !foundRenderedTarget) {
             console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
             that.triggerCallback({
               action: nextState.action,
