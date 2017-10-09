@@ -277,7 +277,7 @@ class Joyride extends React.Component {
     if (nextState.action === 'start' && !nextState.isRunning) {
       // There's a step to use, but there's no target in the DOM
       if (nextStep && !hasRenderedTarget) {
-        console.warn('Target not mounted', nextStep, nextState.action); //eslint-disable-line no-console
+        console.warn('Tried to start, but something went wrong and we\'re not actually running Target not mounted', nextStep, nextState.action); //eslint-disable-line no-console
         this.triggerCallback({
           action: 'start',
           index: nextState.index,
@@ -311,36 +311,44 @@ class Joyride extends React.Component {
     // Joyride was running (it might still be), and the index has been changed
     if (isRunning && nextState.index !== index) {
       const that = this;
-      setTimeout(() => {
-        that.triggerCallback({
-          action: nextState.action,
-          index,
-          type: callbackTypes.STEP_AFTER,
-          step
-        });
+      let checkExist = setInterval(() => {
+        console.log(nextStep.selector, document.querySelector(nextStep.selector));
+        if (document.querySelector(nextStep.selector)) {
+          that.triggerCallback({
+            action: nextState.action,
+            index,
+            type: callbackTypes.STEP_AFTER,
+            step
+          });
 
-        // Attempted to advance to a step with a target that cannot be found
-        /* istanbul ignore else */
-        if (nextStep && !hasRenderedTarget) {
-          console.warn('Target not mounted', nextStep, nextState.action); //eslint-disable-line no-console
-          that.triggerCallback({
-            action: nextState.action,
-            index: nextState.index,
-            type: callbackTypes.TARGET_NOT_FOUND,
-            step: nextStep,
-          });
+          // Attempted to advance to a step with a target that cannot be found
+          /* istanbul ignore else */
+          if (nextStep && !hasRenderedTarget) {
+            console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
+            that.triggerCallback({
+              action: nextState.action,
+              index: nextState.index,
+              type: callbackTypes.TARGET_NOT_FOUND,
+              step: nextStep,
+            });
+          }
+
+          // There's a next step and the index is > 0
+          // (which means STEP_BEFORE wasn't sent as part of the start handler above)
+          else if (nextStep && nextState.index) {
+            that.triggerCallback({
+              action: nextState.action,
+              index: nextState.index,
+              type: callbackTypes.STEP_BEFORE,
+              step: nextStep
+            });
+          }
+
+          clearInterval(checkExist);
+        } else {
+          console.warn('Attempted to advance to a step with a target that cannot be found... Retry...');
         }
-        // There's a next step and the index is > 0
-        // (which means STEP_BEFORE wasn't sent as part of the start handler above)
-        else if (nextStep && nextState.index) {
-          that.triggerCallback({
-            action: nextState.action,
-            index: nextState.index,
-            type: callbackTypes.STEP_BEFORE,
-            step: nextStep
-          });
-        }
-      }, 300);
+      }, 500);
     }
 
     // Running, and a tooltip is being turned on/off or the index is changing
@@ -911,7 +919,7 @@ class Joyride extends React.Component {
           type: callbackTypes.HOLE,
           step: steps[index]
         });
-        setTimeout(this.nextTooltip(index), 300);
+        setTimeout(this.nextTooltip(index), 600);
       }
 
       if (tooltip.classList.contains('joyride-tooltip--standalone')) {
