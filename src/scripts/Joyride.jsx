@@ -313,38 +313,42 @@ class Joyride extends React.Component {
       const that = this;
       let checkExist = setInterval(() => {
         console.log(nextStep.selector, document.querySelector(nextStep.selector));
+
         if (document.querySelector(nextStep.selector)) {
-          that.triggerCallback({
-            action: nextState.action,
-            index,
-            type: callbackTypes.STEP_AFTER,
-            step
-          });
-
-          // Attempted to advance to a step with a target that cannot be found
-          /* istanbul ignore else */
-          if (nextStep && !hasRenderedTarget) {
-            console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
-            that.triggerCallback({
-              action: nextState.action,
-              index: nextState.index,
-              type: callbackTypes.TARGET_NOT_FOUND,
-              step: nextStep,
-            });
-          }
-
-          // There's a next step and the index is > 0
-          // (which means STEP_BEFORE wasn't sent as part of the start handler above)
-          else if (nextStep && nextState.index) {
-            that.triggerCallback({
-              action: nextState.action,
-              index: nextState.index,
-              type: callbackTypes.STEP_BEFORE,
-              step: nextStep
-            });
-          }
-
           clearInterval(checkExist);
+
+          setTimeout(() => {
+            that.triggerCallback({
+              action: nextState.action,
+              index,
+              type: callbackTypes.STEP_AFTER,
+              step
+            });
+
+            // Attempted to advance to a step with a target that cannot be found
+            /* istanbul ignore else */
+            if (nextStep && !hasRenderedTarget) {
+              console.warn('Attempted to advance to a step with a target that cannot be found', nextStep, nextState.action); //eslint-disable-line no-console
+              that.triggerCallback({
+                action: nextState.action,
+                index: nextState.index,
+                type: callbackTypes.TARGET_NOT_FOUND,
+                step: nextStep,
+              });
+            }
+
+            // There's a next step and the index is > 0
+            // (which means STEP_BEFORE wasn't sent as part of the start handler above)
+            else if (nextStep && nextState.index) {
+              that.triggerCallback({
+                action: nextState.action,
+                index: nextState.index,
+                type: callbackTypes.STEP_BEFORE,
+                step: nextStep
+              });
+            }
+          }, 500);
+
         } else {
           console.warn('Attempted to advance to a step with a target that cannot be found... Retry...');
         }
